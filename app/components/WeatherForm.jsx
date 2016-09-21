@@ -20,7 +20,18 @@ var WeatherForm = React.createClass({
       return(
         <div>
         <form onSubmit={this.onFormSubmit}>
-          <input type="text" placeholder="example: Germany" ref="location"></input>
+
+
+          <label>Select Menu
+            <select ref="location">
+              <option>England</option>
+              <option>France</option>
+              <option>Germany</option>
+              <option>United States</option>
+            </select>
+          </label>
+
+
           <button className="button success expanded">Get Name</button>
         </form>
         </div>
