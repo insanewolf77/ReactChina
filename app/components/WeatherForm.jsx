@@ -6,11 +6,15 @@ var WeatherForm = React.createClass({
       e.preventDefault();
 
       var location = this.refs.location.value;
-      if (location.length > 0) {
+      var gender = this.refs.gender.value;
+
+
+      if (location.length > 0 && gender.length > 0) {
         //Clearing the text box
-        this.refs.location.value = '';
+        // this.refs.location.value = '';
+        // this.refs.gender.value = '';
         //Send to the parent function
-        this.props.onSearch(location);
+        this.props.onSearch(location, gender);
       }
 
     },
@@ -22,14 +26,20 @@ var WeatherForm = React.createClass({
         <form onSubmit={this.onFormSubmit}>
 
 
-          <label>Select Menu
+
             <select ref="location">
               <option>England</option>
               <option>France</option>
               <option>Germany</option>
               <option>United States</option>
             </select>
-          </label>
+
+
+            <select ref="gender">
+              <option>male</option>
+              <option>female</option>
+            </select>
+
 
 
           <button className="button success expanded">Get Name</button>

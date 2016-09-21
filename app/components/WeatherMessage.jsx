@@ -11,9 +11,9 @@ var React = require('react');
 // });
 
 
-var WeatherMessage = ({temp,location}) => {
+var WeatherMessage = ({temp,location,gender}) => {
   return(
-  <h3 className="text-center">Your name for {location} is {temp} </h3>
+  <h3 className="text-center">Your {gender} name in {location} is {temp} </h3>
   )
 };
 

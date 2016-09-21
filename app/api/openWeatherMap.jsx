@@ -4,9 +4,11 @@ var axios = require('axios');
 const OPEN_WEATHER_MAP_URL = 'http://uinames.com/api/';
 
 module.exports = {
-  getTemp: function (location) {
+  getTemp: function (location, gender) {
     var encodedLocation = encodeURIComponent(location);
-    var requestUrl = `${OPEN_WEATHER_MAP_URL}?region=${encodedLocation}`;
+    var encodedGender = encodeURIComponent(gender);
+
+    var requestUrl = `${OPEN_WEATHER_MAP_URL}?region=${encodedLocation}&gender=${encodedGender}`;
 
   //   return axios.get(requestUrl).then(function (res) {
   //     debugger;

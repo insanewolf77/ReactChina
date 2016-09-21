@@ -14,7 +14,7 @@ var Weather = React.createClass({
     },
 
 
-    handleSearch: function (location) {
+    handleSearch: function (location, gender) {
 
       var that = this;
 
@@ -23,10 +23,11 @@ var Weather = React.createClass({
         errorMessage: undefined
       });
 
-      openWeatherMap.getTemp(location).then (function(temp) {
+      openWeatherMap.getTemp(location, gender).then (function(temp) {
         that.setState({
             location: location,
             temp: temp,
+            gender: gender,
             isLoading: false,
 
         });
@@ -45,13 +46,13 @@ var Weather = React.createClass({
 
 
     render: function () {
-      var {isLoading, temp, location, errorMessage} = this.state;
+      var {isLoading, temp, location, gender, errorMessage} = this.state;
 
       function renderMessage () {
         if (isLoading) {
           return <h3 className="text-center">Fetching Name ... </h3>;
         } else if (temp && location) {
-           return <WeatherMessage temp={temp} location={location}/>;
+           return <WeatherMessage temp={temp} location={location} gender={gender}/>;
         }
       }
 
